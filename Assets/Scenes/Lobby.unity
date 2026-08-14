@@ -119,6 +119,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &649153046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 649153048}
+  - component: {fileID: 649153047}
+  m_Layer: 0
+  m_Name: LobbyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &649153047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649153046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aad82ad5059cf74d93524237070c44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LobbyUIManager
+  lobbyPanles:
+  - {fileID: 8868725896863174806}
+  - {fileID: 8868725895473400304}
+--- !u!4 &649153048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649153046}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 582.1887, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &738556004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1648,13 +1695,28 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8868725895473400272}
+  - component: {fileID: 8868725895473400304}
   m_Layer: 5
-  m_Name: MiddleSectionPanel
+  m_Name: RegisteredSectionPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &8868725895473400304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868725895473400303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2c096c8ad870c4ea5e134a4b863bcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegisteredSectionPanel
+  <PanelType>k__BackingField: 2
+  panelAnimator: {fileID: 8868725895733105722}
 --- !u!1 &8868725895504168930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3930,6 +3992,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8868725896863174805}
+  - component: {fileID: 8868725896863174806}
   m_Layer: 5
   m_Name: CreateNickNamePanel
   m_TagString: Untagged
@@ -3957,6 +4020,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8868725896863174806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868725896863174804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 555202b5eca3c8041b9f8463d2d4b724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CreateNicknamePanel
+  <PanelType>k__BackingField: 1
+  panelAnimator: {fileID: 8868725895994068995}
+  nicknameInputField: {fileID: 8868725896328518250}
+  createNicknameBtn: {fileID: 8868725896394407457}
 --- !u!1 &8868725896918541671
 GameObject:
   m_ObjectHideFlags: 0
@@ -4319,4 +4398,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 2068392202}
   - {fileID: 8868725895867679536}
+  - {fileID: 649153048}
   - {fileID: 738556007}
