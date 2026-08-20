@@ -7,12 +7,21 @@ using UnityEngine.SceneManagement;
 
 public class NetworkRunnerController : MonoBehaviour, INetworkRunnerCallbacks
 {
+    public event Action OnStartedRunnerConnection;
+    public event Action OnPlayerJoinedSuccesfully;
     [SerializeField] private NetworkRunner networkRunnerPrefab;
 
     private NetworkRunner networkRunnerInstance;
 
+    public void ShutDownRunner()
+    {
+        networkRunnerInstance.Shutdown();
+    }
+
     public async void StartGame(GameMode mode, string roomName)
     {
+        OnStartedRunnerConnection?.Invoke();
+
         if(networkRunnerInstance == null)
         {
             networkRunnerInstance = Instantiate(networkRunnerPrefab);
@@ -53,91 +62,92 @@ public class NetworkRunnerController : MonoBehaviour, INetworkRunnerCallbacks
 
     public void OnConnectedToServer(NetworkRunner runner)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnConnectedToServer call");
     }
 
     public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnConnectFailed call");
     }
 
     public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnConnectRequest call");
     }
 
     public void OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnCustomAuthenticationResponse call");
     }
 
     public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnDisconnectedFromServer call");
     }
 
     public void OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnHostMigration call");
     }
 
     public void OnInput(NetworkRunner runner, NetworkInput input)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnInput call");
     }
 
     public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnInputMissing call");
     }
 
     public void OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnObjectEnterAOI call");
     }
 
     public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnObjectExitAOI call");
     }
 
     public void OnPlayerJoined(NetworkRunner runner, PlayerRef player)
     {
-        throw new NotImplementedException();
+        OnPlayerJoinedSuccesfully?.Invoke();
     }
 
     public void OnPlayerLeft(NetworkRunner runner, PlayerRef player)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnPlayerLeft call");
     }
 
     public void OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnReliableDataProgress call");
     }
 
     public void OnReliableDataReceived(NetworkRunner runner, PlayerRef player, ReliableKey key, ReadOnlySpan<byte> data)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnReliableDataReceived call");
     }
 
     public void OnSceneLoadDone(NetworkRunner runner)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnSceneLoadDone call");
     }
 
     public void OnSceneLoadStart(NetworkRunner runner)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnSceneLoadStart call");
     }
 
     public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
     {
-        throw new NotImplementedException();
+        Debug.Log("OnSessionListUpdated call");
     }
 
     public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
     {
-        throw new NotImplementedException();
+        const string LOBBY_SCENE = "Lobby";
+        SceneManager.LoadScene(LOBBY_SCENE);
     }
 }
