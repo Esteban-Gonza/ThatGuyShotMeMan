@@ -137,6 +137,8 @@ GameObject:
   - component: {fileID: 119644345725009796}
   - component: {fileID: 4416919030672285806}
   - component: {fileID: 6537653236041302428}
+  - component: {fileID: 6700519670732768225}
+  - component: {fileID: 3353974867988555683}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -179,6 +181,8 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 119644345725009796}
+  - {fileID: 6700519670732768225}
+  - {fileID: 3353974867988555683}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &119644345725009796
 MonoBehaviour:
@@ -269,6 +273,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6700519670732768225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259751769385744123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 262e2544e931a8a41aaa0aec6be57c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  moveSpeed: 6
+--- !u!114 &3353974867988555683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259751769385744123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9207f4a5f6abce40abf31500e1cadff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalInputPoller
+  player: {fileID: 6700519670732768225}
 --- !u!1 &4000032765575459976
 GameObject:
   m_ObjectHideFlags: 0
